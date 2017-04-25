@@ -1,0 +1,50 @@
+{% extends "FastLSH/header.html" %}
+
+	   {% block content %}
+{% load staticfiles %}
+
+<style type="text/css">
+
+        #wrapper {
+            height: 100%;
+            background-color:#000;
+            position: fixed;
+		  top: 0;
+		  left: 0;
+		  bottom: 0;
+		  right: 0;
+		  overflow: auto;
+		  opacity: 0.9;
+        }
+    </style>
+
+<center>
+	<h2>This is a C++ implementation of E2LSH and C2LSH. More detail to come. </h2>
+<!--<img src="{% static 'FastLSH/img/FastLSH-UI.png' %}" class="responsive-img" style='max-height:100px;' alt="logo">-->
+<img src="{% static 'FastLSH/img/FastLSH-UI.png' %}" class="responsive-img"  alt="logo">
+
+
+
+
+</center>
+
+<div id="wrapper">
+	<center>
+	<img src="{% static 'FastLSH/img/FastLSH-UI.png' %}" class="responsive-img"  alt="logo">
+		<br>
+	<button class="btn btn-default " onclick = "hideW()">Get Start</button>
+	</center>
+</div>
+
+<script>
+	function hideW(){
+	$( "#wrapper" ).hide();
+}
+
+</script>
+
+
+
+
+<!--{% include "FastLSH/includes/htmlsnippet.html" %}-->
+	   {% endblock %}

@@ -1,0 +1,146 @@
+{% extends "FastLSH/header.html" %}
+
+	   {% block content %}
+
+
+<script>
+
+
+
+
+
+
+</script>
+
+
+
+{% load staticfiles %}
+<div class="col-sm-2">
+
+</div>
+
+ <div class="col-sm-6">
+<form action="/FastLSH/submit" method="post">
+	    {% csrf_token %}
+
+  <div class="form-group">
+    <label for="RunName">Name this RUN</label>
+    <input type="text" name = "RunName" class="form-control" id="RunName" placeholder="first run">
+  </div>
+
+	<div class="form-group">
+    <label for="phN">N: number of points(lines,rows) in the dataset</label>
+    <input type="number" name = "phN" class="form-control" id="phN" placeholder="1000">
+  </div>
+
+	<div class="form-group">
+    <label for="phQ">Q:  number of points(lines,rows) in the queryset</label>
+    <input type="number" name = "phQ" class="form-control" id="phQ" placeholder="1000">
+  </div>
+	<div class="form-group">
+    <label for="phD">D: number of dimensions (columns)</label>
+    <input type="number" name = "phD" class="form-control" id="phD" placeholder="56">
+  </div>
+	<div class="form-group">
+    <label for="phL">L: number of group hash</label>
+    <input type="number" name = "phL" class="form-control" id="phL" placeholder="200">
+  </div>
+
+	<div class="form-group">
+    <label for="phK">K: number of hash functions in each group hash</label>
+    <input type="number" name = "phK" class="form-control" id="phK" placeholder="1">
+  </div>
+
+	<div class="form-group">
+    <label for="phW">W: bucket width</label>
+    <input  name = "phW" class="form-control" id="phW" placeholder="1.2">
+  </div>
+
+	<div class="form-group">
+    <label for="phT">T: threshold</label>
+    <input type="number" name = "phT" class="form-control" id="phT" placeholder="100">
+  </div>
+
+  <div class="form-group">
+    <label for="computeMode">Compute Mode</label>
+    <select class="form-control" name = "computeMode" id="computeMode">
+      <option>0 - normal</option>
+      <option>1 - quick</option>
+    </select>
+  </div>
+
+
+  <div class="form-group">
+    <label for="threadMode">Thread Mode</label>
+    <select class="form-control" name = "threadMode" id="threadMode">
+      <option>0 - singleThread</option>
+      <option>1 - openMP</option>
+      <option>2 - stdthread</option>
+      <option>3 - pthread</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="ipathN">Input Path for datasetN:</label>
+    <input type="text" class="form-control" name = "ipathN" id="ipathN" placeholder="./dataset1000NoIndex.csv">
+  </div>
+
+	<div class="form-group">
+    <label for="ipathQ">Input Path for datasetQ:</label>
+    <input type="text" class="form-control" name = "ipathQ" id="ipathQ" placeholder="./dataset1000NoIndex.csv">
+  </div>
+
+	<div class="form-group">
+    <label for="opath">Output Path:</label>
+    <input type="text" class="form-control" name = "opath" id="opath" placeholder="candidate.csv">
+  </div>
+
+
+
+
+  <!--<div class="form-group">-->
+    <!--<label for="exampleTextarea">Example textarea</label>-->
+    <!--<textarea class="form-control" id="exampleTextarea" rows="3"></textarea>-->
+  <!--</div>-->
+  <!--<div class="form-group">-->
+    <!--<label for="exampleInputFile">File input</label>-->
+    <!--<input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">-->
+    <!--<small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>-->
+  <!--</div>-->
+  <!--<fieldset class="form-group">-->
+    <!--<legend>Radio buttons</legend>-->
+    <!--<div class="form-check">-->
+      <!--<label class="form-check-label">-->
+        <!--<input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked>-->
+        <!--Option one is this and that&mdash;be sure to include why it's great-->
+      <!--</label>-->
+    <!--</div>-->
+    <!--<div class="form-check">-->
+    <!--<label class="form-check-label">-->
+        <!--<input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">-->
+        <!--Option two can be something else and selecting it will deselect option one-->
+      <!--</label>-->
+    <!--</div>-->
+    <!--<div class="form-check disabled">-->
+    <!--<label class="form-check-label">-->
+        <!--<input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios3" value="option3" disabled>-->
+        <!--Option three is disabled-->
+      <!--</label>-->
+    <!--</div>-->
+  <!--</fieldset>-->
+  <!--<div class="form-check">-->
+    <!--<label class="form-check-label">-->
+      <!--<input type="checkbox" class="form-check-input">-->
+      <!--Check me out-->
+    <!--</label>-->
+  <!--</div>-->
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+ </div>
+
+
+
+
+<!--{% include "FastLSH/includes/htmlsnippet.html" %}-->
+	   {% endblock %}
