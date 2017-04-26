@@ -48,6 +48,9 @@ def ab_tm(request):
 def ab_sc(request):
     return render(request, 'FastLSH/dashboard/about_source_code.html')
 
+def dp_high_dim_viz(request):
+    return render(request, 'FastLSH/dashboard/dp_high_dim_viz.html')
+
 def parameterSet(request):
     return render(request, 'FastLSH/parameterSet.html')
 
