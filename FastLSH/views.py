@@ -8,6 +8,7 @@ import core.flExec.lshExecution as lsh
 import psutil
 import platform
 from requests import get
+from multiprocessing import Pool
 
 # Create your views here.
 
@@ -51,8 +52,37 @@ def ab_sc(request):
 def dp_high_dim_viz(request):
     return render(request, 'FastLSH/dashboard/dp_high_dim_viz.html')
 
+def db_submit(request):
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+
+    time_stamp = time.strftime("%Y%m%d%H%M%S")
+
+    para_set = dict()
+
+    para_set["run_name"] = "first run" if request.POST["RunName"]=="" else request.POST["RunName"]
+    para_set["N"] =  1000 if request.POST["phN"]=="" else int(request.POST["phN"])
+    para_set["Q"] =  1000 if request.POST["phQ"]=="" else int(request.POST["phQ"])
+    para_set["D"] =  56 if request.POST["phD"]=="" else int(request.POST["phD"])
+    para_set["L"] =  200 if request.POST["phL"]=="" else int(request.POST["phL"])
+    para_set["K"] =  1 if request.POST["phK"]=="" else int(request.POST["phK"])
+    para_set["W"]=  1.2 if request.POST["phW"]=="" else float(request.POST["phW"])
+    para_set["T"] =  100 if request.POST["phT"]=="" else int(request.POST["phT"])
+    para_set["compute_mode"] = request.POST["computeMode"]
+    para_set["thread_mode"] = request.POST["threadMode"]
+    para_set["input_path_N"] = "./dataset1000NoIndex.csv" if request.POST["ipathN"]=="" else request.POST["ipathN"]
+    para_set["input_path_Q"] = "./dataset1000NoIndex.csv" if request.POST["ipathQ"]=="" else request.POST["ipathQ"]
+    para_set["output_path"] = "candidate.csv" if request.POST["opath"]=="" else request.POST["opath"]
+    # lsh.calCandidate(para_set)
+    if __name__ == '__main__':
+        pool = Pool(processes=1)  # Start a worker processes.
+        result = pool.apply_async(lsh.calCandidate, para_set )
+    return render(request, 'FastLSH/dashboard/execution.html', {} )
 
 def execution_d(request):
+
+
+    # reply = lsh.calCandidate(para_set)
+
     return render(request, 'FastLSH/dashboard/execution.html')
 
 def ram_status(request):
