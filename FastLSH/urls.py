@@ -16,7 +16,10 @@ urlpatterns = [
     url(r'^dbindex/ab_prj$', views.ab_prj, name='dbindex'),
     url(r'^dbindex/ab_tm$', views.ab_tm, name='dbindex'),
     url(r'^dbindex/ab_sc$', views.ab_sc, name='dbindex'),
-    url(r'^dbindex/dp_high_dim_viz$', views.dp_high_dim_viz, name='dbindex')
+    url(r'^dbindex/dp_high_dim_viz$', views.dp_high_dim_viz, name='dbindex'),
+    url(r'^dbindex/execution$', views.execution_d, name='dbindex'),
+    url(r'^dbindex/ram_status$', views.ram_status, name='dbindex'),
+    url(r'^dbindex/cpu_status$', views.cpu_status, name='dbindex')
 
     # url(r'^hello/', 'FastLSH.views.hello'),
     # url(r'^home/', 'FastLSH.views.home'),

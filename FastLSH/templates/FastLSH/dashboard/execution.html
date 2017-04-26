@@ -1,0 +1,394 @@
+{% include "FastLSH/dashboard/dbHeader.html" %}
+
+<div class="right_col" role="main">
+          <div class="">
+            <div class="page-title">
+              <div class="title_left">
+                <h3>Form Wizards</h3>
+              </div>
+
+              <div class="title_right">
+                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search for...">
+                    <span class="input-group-btn">
+                              <button class="btn btn-default" type="button">Go!</button>
+                          </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+
+            <div class="row">
+
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Parameter Setting <small>Sessions</small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Settings 1</a>
+                          </li>
+                          <li><a href="#">Settings 2</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+
+
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <div class="x_panel tile fixed_height_400">
+                <div class="x_title">
+                  <h2>App Versions</h2>
+                  <ul class="nav navbar-right panel_toolbox">
+                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                      <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">Settings 1</a>
+                        </li>
+                        <li><a href="#">Settings 2</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                    </li>
+                  </ul>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                  <h4>App Usage across versions</h4>
+                  <div class="widget_summary">
+                    <div class="w_left w_25">
+                      <span>CPU 1</span>
+                    </div>
+                    <div class="w_center w_55">
+                      <div class="progress">
+                        <div class="progress-bar bg-green" role="progressbar" id = "cpu_1" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 80%;">
+                          <span class="sr-only">60% Complete</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="w_right w_20">
+                      <span id = "cpu_1_p"></span>
+                    </div>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="widget_summary">
+                    <div class="w_left w_25">
+                      <span>CPU 2</span>
+                    </div>
+                    <div class="w_center w_55">
+                      <div class="progress">
+                        <div class="progress-bar bg-green" role="progressbar" id = "cpu_2" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 80%;">
+                          <span class="sr-only">60% Complete</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="w_right w_20">
+                      <span id = "cpu_2_p"></span>
+                    </div>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="widget_summary">
+                    <div class="w_left w_25">
+                      <span>CPU 3</span>
+                    </div>
+                    <div class="w_center w_55">
+                      <div class="progress">
+                        <div class="progress-bar bg-green" role="progressbar" id = "cpu_3" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 80%;">
+                          <span class="sr-only">60% Complete</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="w_right w_20">
+                      <span id = "cpu_3_p"></span>
+                    </div>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="widget_summary">
+                    <div class="w_left w_25">
+                      <span>CPU 4</span>
+                    </div>
+                    <div class="w_center w_55">
+                      <div class="progress">
+                        <div class="progress-bar bg-green" role="progressbar" id = "cpu_4" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 80%;">
+                          <span class="sr-only">60% Complete</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="w_right w_20">
+                      <span id = "cpu_4_p"></span>
+                    </div>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="widget_summary">
+                    <div class="w_left w_25">
+                      <span>CPU 5</span>
+                    </div>
+                    <div class="w_center w_55">
+                      <div class="progress">
+                        <div class="progress-bar bg-green" role="progressbar" id = "cpu_5" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 80%;">
+                          <span class="sr-only">60% Complete</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="w_right w_20">
+                      <span id = "cpu_5_p"></span>
+                    </div>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="widget_summary">
+                    <div class="w_left w_25">
+                      <span>CPU 6</span>
+                    </div>
+                    <div class="w_center w_55">
+                      <div class="progress">
+                        <div class="progress-bar bg-green" role="progressbar" id = "cpu_6" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 80%;">
+                          <span class="sr-only">60% Complete</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="w_right w_20">
+                      <span id = "cpu_6_p"></span>
+                    </div>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="widget_summary">
+                    <div class="w_left w_25">
+                      <span>CPU 7</span>
+                    </div>
+                    <div class="w_center w_55">
+                      <div class="progress">
+                        <div class="progress-bar bg-green" role="progressbar" id = "cpu_7" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 80%;">
+                          <span class="sr-only">60% Complete</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="w_right w_20">
+                      <span id = "cpu_7_p"></span>
+                    </div>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="widget_summary">
+                    <div class="w_left w_25">
+                      <span>CPU 8</span>
+                    </div>
+                    <div class="w_center w_55">
+                      <div class="progress">
+                        <div class="progress-bar bg-green" role="progressbar" id = "cpu_8" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 80%;">
+                          <span class="sr-only">60% Complete</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="w_right w_20">
+                      <span id = "cpu_8_p"></span>
+                    </div>
+                    <div class="clearfix"></div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Gauge</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Settings 1</a>
+                          </li>
+                          <li><a href="#">Settings 2</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+
+                         <div id="container-rpm" style="width: 300px; height: 200px; float: left"></div>
+                  </div>
+                </div>
+              </div>
+
+                              <div id="test_holder"> here</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /page content -->
+
+
+
+
+    	{% load staticfiles %}
+    <script src="{% static '/vendors/jquery/dist/jquery.min.js' %}"></script>
+
+
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/highcharts-more.js"></script>
+
+<script src="https://code.highcharts.com/modules/solid-gauge.js"></script>
+
+
+{% include "FastLSH/dashboard/dbfooter.html" %}
+
+<script>
+
+
+
+
+var gaugeOptions = {
+
+    chart: {
+        type: 'solidgauge'
+    },
+
+    title: null,
+
+    pane: {
+        center: ['50%', '85%'],
+        size: '140%',
+        startAngle: -90,
+        endAngle: 90,
+        background: {
+            backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || '#EEE',
+            innerRadius: '60%',
+            outerRadius: '100%',
+            shape: 'arc'
+        }
+    },
+
+    tooltip: {
+        enabled: false
+    },
+
+    // the value axis
+    yAxis: {
+        stops: [
+            [0.1, '#55BF3B'], // green
+            [0.5, '#DDDF0D'], // yellow
+            [0.9, '#DF5353'] // red
+        ],
+        lineWidth: 0,
+        minorTickInterval: null,
+        tickAmount: 2,
+        title: {
+            y: -70
+        },
+        labels: {
+            y: 16
+        }
+    },
+
+    plotOptions: {
+        solidgauge: {
+            dataLabels: {
+                y: 5,
+                borderWidth: 0,
+                useHTML: true
+            }
+        }
+    }
+};
+
+
+// The RPM gauge
+var chartRpm = Highcharts.chart('container-rpm', Highcharts.merge(gaugeOptions, {
+    yAxis: {
+        min: 0,
+        max: 100,
+        title: {
+            text: 'Memory Usage'
+        }
+    },
+
+    series: [{
+        name: 'Memory Usage',
+        data: [1],
+        dataLabels: {
+            format: '<div style="text-align:center"><span style="font-size:25px;color:' +
+                ((Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black') + '">{y:.1f}</span><br/>' +
+                   '<span style="font-size:12px;color:silver">%</span></div>'
+        },
+        tooltip: {
+            valueSuffix: ' revolutions/min'
+        }
+    }]
+
+}));
+
+// Bring life to the dials
+setInterval(function () {
+    // Speed
+    var point,
+        newVal,
+        inc;
+
+    if (chartRpm) {
+        point = chartRpm.series[0].points[0];
+        var newVal;
+        $.ajax({url: "/FastLSH/dbindex/ram_status", success: function(result){
+        point.update(parseFloat(result));
+    }});
+
+
+     $.ajax({url: "/FastLSH/dbindex/cpu_status", success: function(result){
+        result = result.split(" ");
+         document.getElementById('cpu_1').style.width= result[0] + '%';
+         document.getElementById('cpu_2').style.width= result[1] + '%';
+         document.getElementById('cpu_3').style.width= result[2] + '%';
+         document.getElementById('cpu_4').style.width= result[3] + '%';
+         document.getElementById('cpu_5').style.width= result[4] + '%';
+         document.getElementById('cpu_6').style.width= result[5] + '%';
+         document.getElementById('cpu_7').style.width= result[6] + '%';
+         document.getElementById('cpu_8').style.width= result[7] + '%';
+
+        document.getElementById("cpu_1_p").innerHTML = result[0] + '%';
+        document.getElementById("cpu_2_p").innerHTML = result[1] + '%';
+        document.getElementById("cpu_3_p").innerHTML = result[2] + '%';
+        document.getElementById("cpu_4_p").innerHTML = result[3] + '%';
+        document.getElementById("cpu_5_p").innerHTML = result[4] + '%';
+        document.getElementById("cpu_6_p").innerHTML = result[5] + '%';
+        document.getElementById("cpu_7_p").innerHTML = result[6] + '%';
+        document.getElementById("cpu_8_p").innerHTML = result[7] + '%';
+
+    }});
+
+
+
+
+    }
+}, 500);
+
+
+
+
+
+
+
+
+</script>

@@ -51,6 +51,24 @@ def ab_sc(request):
 def dp_high_dim_viz(request):
     return render(request, 'FastLSH/dashboard/dp_high_dim_viz.html')
 
+
+def execution_d(request):
+    return render(request, 'FastLSH/dashboard/execution.html')
+
+def ram_status(request):
+    #psutil.cpu_percent(percpu=True)
+    response = psutil.virtual_memory().percent
+
+    return HttpResponse(response)
+
+def cpu_status(request):
+    percent = psutil.cpu_percent(percpu=True)
+    response = ""
+    for p in percent:
+        response =  response +str(p) +" "
+    return HttpResponse(response)
+
+
 def parameterSet(request):
     return render(request, 'FastLSH/parameterSet.html')
 
