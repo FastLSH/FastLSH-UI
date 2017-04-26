@@ -5,6 +5,9 @@ import time
 import os
 from django import forms
 import core.flExec.lshExecution as lsh
+import psutil
+import platform
+from requests import get
 
 # Create your views here.
 
@@ -20,7 +23,30 @@ def para_form(request):
     return render(request, 'FastLSH/dashboard/parameter_form.html')
 
 def my_machine(request):
-    return render(request, 'FastLSH/dashboard/my_machine.html')
+    mach_info = dict()
+
+    mach_info["p_count_l"] = psutil.cpu_count()
+    mach_info["p_count"] = psutil.cpu_count(logical=False)
+    mach_info["m_size"] = "%.2f" % (psutil.virtual_memory().total/(1024.0**3))
+    mach_info["disk_free"] = "%.2f" %(psutil.disk_usage('/').free/(1024.0**3))
+    mach_info["os"] = platform.linux_distribution()[0] + " " + platform.linux_distribution()[1]
+    mach_info["p_type"] = platform.processor()
+    mach_info["ex_ip"] = get('https://ipapi.co/ip/').text
+
+
+    return render(request, 'FastLSH/dashboard/my_machine.html', mach_info)
+
+def instruction(request):
+    return render(request, 'FastLSH/dashboard/instruction.html')
+
+def ab_prj(request):
+    return render(request, 'FastLSH/dashboard/about_project.html')
+
+def ab_tm(request):
+    return render(request, 'FastLSH/dashboard/about_team.html')
+
+def ab_sc(request):
+    return render(request, 'FastLSH/dashboard/about_source_code.html')
 
 def parameterSet(request):
     return render(request, 'FastLSH/parameterSet.html')
