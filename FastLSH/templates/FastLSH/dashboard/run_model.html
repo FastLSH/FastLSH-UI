@@ -1,0 +1,576 @@
+{% include "FastLSH/dashboard/dbHeader.html" %}
+
+<div class="right_col" role="main">
+          <div class="">
+            <div class="page-title">
+              <div class="title_left">
+                <h3>Form Wizards</h3>
+              </div>
+
+              <div class="title_right">
+                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search for...">
+                    <span class="input-group-btn">
+                              <button class="btn btn-default" type="button">Go!</button>
+                          </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+
+            <div class="row" id="step_1">
+
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Parameter Setting <small>Sessions</small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Settings 1</a>
+                          </li>
+                          <li><a href="#">Settings 2</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+
+
+                    <!-- Smart Wizard -->
+                    <p>Please input parameter setting here</p>
+                    <div id="wizard" class="form_wizard wizard_horizontal">
+                      <ul class="wizard_steps">
+                        <li>
+                          <a href="#step-1">
+                            <span class="step_no">1</span>
+                            <span class="step_descr">
+                                              Step 1<br />
+                                              <small>Step 1 Basic Information</small>
+                                          </span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#step-2">
+                            <span class="step_no">2</span>
+                            <span class="step_descr">
+                                              Step 2<br />
+                                              <small>Step 2 Parameters</small>
+                                          </span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#step-3">
+                            <span class="step_no">3</span>
+                            <span class="step_descr">
+                                              Step 3<br />
+                                              <small>Step 3 Execution Mode</small>
+                                          </span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#step-4">
+                            <span class="step_no">4</span>
+                            <span class="step_descr">
+                                              Step 4<br />
+                                              <small>Step 4 File Pathes</small>
+                                          </span>
+                          </a>
+                        </li>
+                      </ul>
+
+                        <form id = "paraForm" class="form-horizontal form-label-left" action="/FastLSH/dbindex/submit" method="post">
+                      	    {% csrf_token %}
+                            <div id="step-1">
+
+
+                          <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="run-name">Run Name <span class="required">*</span>
+                            </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                              <input type="text" id="run-name" name = "RunName" required="required" class="form-control col-md-7 col-xs-12">
+                            </div>
+                          </div>
+
+                        <!--</form>-->
+
+                      </div>
+
+                      <div id="step-2">
+                          <!--<form class="form-horizontal form-label-left">-->
+
+
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="phN">N: number of points(lines,rows) in the dataset</label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="number" name = "phN" class="form-control col-md-7 col-xs-12" id="phN" placeholder="1000">
+                                                                                            </div>
+                              </div>
+
+                                <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="phQ">Q:  number of points(lines,rows) in the queryset</label>
+                                                   <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="number" name = "phQ" class="form-control col-md-7 col-xs-12" id="phQ" placeholder="1000">
+                                                                                     </div>
+                              </div>
+                                <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="phD">D: number of dimensions (columns)</label>
+                                                       <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="number" name = "phD" class="form-control col-md-7 col-xs-12" id="phD" placeholder="56">
+                                                                                         </div>
+                              </div>
+                                <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="phL">L: number of group hash</label>
+                                                       <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="number" name = "phL" class="form-control col-md-7 col-xs-12" id="phL" placeholder="200">
+                                                                                         </div>
+                              </div>
+
+                                <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="phK">K: number of hash functions in each group hash</label>
+                                                       <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="number" name = "phK" class="form-control col-md-7 col-xs-12" id="phK" placeholder="1">
+                                                                                         </div>
+                              </div>
+
+                                <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="phW">W: bucket width</label>
+                                                       <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input  name = "phW" class="form-control col-md-7 col-xs-12" id="phW" placeholder="1.2">
+                                                                                         </div>
+                              </div>
+
+
+                                <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="phT">T: threshold</label>
+                                                       <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="number" name = "phT" class="form-control col-md-7 col-xs-12" id="phT" placeholder="100">
+                                                                                         </div>
+                              </div>
+
+
+                        <!--</form>-->
+                      </div>
+                      <div id="step-3">
+                          <!--<form class="form-horizontal form-label-left">-->
+                        <h2 class="StepTitle">Step 3 Content</h2>
+                          <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="computeMode">Compute Mode</label>
+                              <div class="col-md-6 col-sm-6 col-xs-12">
+                            <select class="form-control col-md-7 col-xs-12" name = "computeMode" id="computeMode">
+                              <option>0 - normal</option>
+                              <option>1 - quick</option>
+                            </select>
+                                  </div>
+                          </div>
+
+
+                          <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="threadMode">Thread Mode</label>
+                              <div class="col-md-6 col-sm-6 col-xs-12">
+                            <select class="form-control col-md-7 col-xs-12" name = "threadMode" id="threadMode">
+                              <option>0 - singleThread</option>
+                              <option>1 - openMP</option>
+                              <option>2 - stdthread</option>
+                              <option>3 - pthread</option>
+                            </select>
+                                  </div>
+                          </div>
+                           <!--</form>-->
+
+                      </div>
+                      <div id="step-4">
+                         <!--<form class="form-horizontal form-label-left">-->
+                               <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ipathN">Input Path for datasetN:</label>
+                                                                 <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" class="form-control col-md-7 col-xs-12" name = "ipathN" id="ipathN" placeholder="./dataset1000NoIndex.csv">
+                                                                        </div>
+                          </div>
+
+                            <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ipathQ">Input Path for datasetQ:</label>
+                                                              <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" class="form-control col-md-7 col-xs-12" name = "ipathQ" id="ipathQ" placeholder="./dataset1000NoIndex.csv">
+                                                                     </div>
+                          </div>
+
+                            <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="opath">Output Path:</label>
+                                                              <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" class="form-control col-md-7 col-xs-12" name = "opath" id="opath" placeholder="candidate.csv">
+                                                                     </div>
+                                </div>
+
+                        <p>
+                          Make sure your input is right. Click Finish for next step.
+                        </p>
+                      </div>
+                         </form>
+                    </div>
+                    <!-- End SmartWizard Content -->
+
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row" id="step_2">
+
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Parameter Setting <small>Sessions</small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Settings 1</a>
+                          </li>
+                          <li><a href="#">Settings 2</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+
+
+
+
+
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <div class="x_panel tile fixed_height_400">
+                <div class="x_title">
+                  <h2>App Versions</h2>
+                  <ul class="nav navbar-right panel_toolbox">
+                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                      <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">Settings 1</a>
+                        </li>
+                        <li><a href="#">Settings 2</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                    </li>
+                  </ul>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                  <h4>App Usage across versions</h4>
+
+                  {{ cpu_html | safe}}
+
+                </div>
+              </div>
+            </div>
+
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Gauge</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Settings 1</a>
+                          </li>
+                          <li><a href="#">Settings 2</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+
+                         <div id="container-rpm" style="width: 300px; height: 200px; float: left"></div>
+                  </div>
+                </div>
+              </div>
+
+                                                    <div class="col-md-12 col-sm-12 col-xs-12">
+              <div class="x_panel">
+                <div class="x_title">
+                  <h2>To Do List <small>Sample tasks</small></h2>
+                  <ul class="nav navbar-right panel_toolbox">
+                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                      <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">Settings 1</a>
+                        </li>
+                        <li><a href="#">Settings 2</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                    </li>
+                  </ul>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+
+                  <div class="">
+                    <ul class="to_do" id = "status">
+                      <li>
+                        <p>
+                          Schedule meeting with new client </p>
+                      </li>
+
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+                              <div id="test_holder"> here</div>
+
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+
+
+
+          </div>
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <footer>
+          <div class="pull-right">
+            Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+          </div>
+          <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+      </div>
+    </div>
+
+    	{% load staticfiles %}
+
+
+{% include "FastLSH/dashboard/dbfooter.html" %}
+
+
+
+
+
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/highcharts-more.js"></script>
+
+<script src="https://code.highcharts.com/modules/solid-gauge.js"></script>
+
+
+<script>
+
+  $('#step_2').hide();
+
+
+    $('#wizard').smartWizard({
+    onFinish: onFinishCallback,
+    labelFinish:'Finish'
+        }
+    );
+
+    function onFinishCallback(){
+    //  $("#paraForm").submit();
+
+       $('#step_1').hide();
+       $('#step_2').show();
+
+       $.ajax({
+         type:'POST',
+         url: '/FastLSH/dbindex/submit',
+         data: $('#paraForm').serialize(),
+         cache: false,
+         success: function(){
+       },
+       error: function(){
+       }
+      });
+
+
+      alert($("#run-name").val())
+
+
+
+      setInterval(function () {
+       $.ajax({
+         type:'POST',
+         url: '/FastLSH/dbindex/get_log',
+         data: {csrfmiddlewaretoken: '{{ csrf_token }}', RunName: $("#run-name").val() },
+         cache: false,
+         success: function(result){
+             result = result.split("\n")
+             html_str = "";
+             for (i = 0; i < result.length; i++) {
+                 html_str+="<li><p>" +result[i] +"</p></li>";
+              }
+              $("#status").html(html_str);
+
+       },
+       error: function(){
+       }
+
+      });
+
+      }, 500);
+
+
+
+
+    }
+
+
+    $('.buttonNext').addClass('btn btn-success');
+    $('.buttonPrevious').addClass('btn btn-primary');
+    $('.buttonFinish').addClass('btn btn-default');
+
+    $('.stepContainer').hide()
+
+
+
+    var gaugeOptions = {
+
+    chart: {
+        type: 'solidgauge'
+    },
+
+    title: null,
+
+    pane: {
+        center: ['50%', '85%'],
+        size: '140%',
+        startAngle: -90,
+        endAngle: 90,
+        background: {
+            backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || '#EEE',
+            innerRadius: '60%',
+            outerRadius: '100%',
+            shape: 'arc'
+        }
+    },
+
+    tooltip: {
+        enabled: false
+    },
+
+    // the value axis
+    yAxis: {
+        stops: [
+            [0.1, '#55BF3B'], // green
+            [0.5, '#DDDF0D'], // yellow
+            [0.9, '#DF5353'] // red
+        ],
+        lineWidth: 0,
+        minorTickInterval: null,
+        tickAmount: 2,
+        title: {
+            y: -70
+        },
+        labels: {
+            y: 16
+        }
+    },
+
+    plotOptions: {
+        solidgauge: {
+            dataLabels: {
+                y: 5,
+                borderWidth: 0,
+                useHTML: true
+            }
+        }
+    }
+};
+
+
+// The RPM gauge
+var chartRpm = Highcharts.chart('container-rpm', Highcharts.merge(gaugeOptions, {
+    yAxis: {
+        min: 0,
+        max: 100,
+        title: {
+            text: 'Memory Usage'
+        }
+    },
+
+    series: [{
+        name: 'Memory Usage',
+        data: [1],
+        dataLabels: {
+            format: '<div style="text-align:center"><span style="font-size:25px;color:' +
+                ((Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black') + '">{y:.1f}</span><br/>' +
+                   '<span style="font-size:12px;color:silver">%</span></div>'
+        },
+        tooltip: {
+            valueSuffix: ' revolutions/min'
+        }
+    }]
+
+}));
+
+// Bring life to the dials
+setInterval(function () {
+    // Speed
+    var point,
+        newVal,
+        inc;
+
+    if (chartRpm) {
+        point = chartRpm.series[0].points[0];
+        var newVal;
+        $.ajax({url: "/FastLSH/dbindex/ram_status", success: function(result){
+        point.update(parseFloat(result));
+    }});
+
+
+     $.ajax({url: "/FastLSH/dbindex/cpu_status", success: function(result){
+        result = result.split(" ");
+        for (i = 1; i <= parseInt(result[0]); i++) {
+          document.getElementById('cpu_'+i).style.width= result[i] + '%';
+          document.getElementById("cpu_"+i+"_p").innerHTML = result[i] + '%';
+        }
+
+    }});
+
+
+
+
+    }
+}, 500);
+
+
+
+
+</script>

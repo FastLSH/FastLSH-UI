@@ -20,7 +20,10 @@ urlpatterns = [
     url(r'^dbindex/execution$', views.execution_d, name='dbindex'),
     url(r'^dbindex/ram_status$', views.ram_status, name='dbindex'),
     url(r'^dbindex/cpu_status$', views.cpu_status, name='dbindex'),
-    url(r'^dbindex/submit$', views.db_submit, name='dbindex')
+    url(r'^dbindex/submit$', views.db_submit, name='dbindex'),
+    url(r'^dbindex/run_model$', views.run_model, name='dbindex'),
+    url(r'^dbindex/get_log$', views.get_log, name='dbindex')
+
 
     # url(r'^hello/', 'FastLSH.views.hello'),
     # url(r'^home/', 'FastLSH.views.home'),

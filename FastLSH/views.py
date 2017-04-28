@@ -1,4 +1,6 @@
 import subprocess
+
+from datetime import datetime
 from django.http import HttpResponse
 from django.shortcuts import render, render_to_response
 import time
@@ -57,32 +59,57 @@ def db_submit(request):
 
     time_stamp = time.strftime("%Y%m%d%H%M%S")
 
+    print dir_path
     para_set = dict()
 
-    para_set["run_name"] = "first run" if request.POST["RunName"]=="" else request.POST["RunName"]
-    para_set["N"] =  1000 if request.POST["phN"]=="" else int(request.POST["phN"])
-    para_set["Q"] =  1000 if request.POST["phQ"]=="" else int(request.POST["phQ"])
-    para_set["D"] =  56 if request.POST["phD"]=="" else int(request.POST["phD"])
-    para_set["L"] =  200 if request.POST["phL"]=="" else int(request.POST["phL"])
-    para_set["K"] =  1 if request.POST["phK"]=="" else int(request.POST["phK"])
-    para_set["W"]=  1.2 if request.POST["phW"]=="" else float(request.POST["phW"])
-    para_set["T"] =  100 if request.POST["phT"]=="" else int(request.POST["phT"])
+    para_set["run_name"] = "first run" if request.POST["RunName"] == "" else request.POST["RunName"]
+
+    f = open(dir_path+"/core/logs/" + para_set["run_name"], 'wb')
+    f.write(datetime.now().strftime('%Y-%m-%d %H:%M:%S') + "  Parameter Received\n")
+
+    para_set["N"] = 1000 if request.POST["phN"] == "" else int(request.POST["phN"])
+    para_set["Q"] = 1000 if request.POST["phQ"] == "" else int(request.POST["phQ"])
+    para_set["D"] = 56 if request.POST["phD"] == "" else int(request.POST["phD"])
+    para_set["L"] = 200 if request.POST["phL"] == "" else int(request.POST["phL"])
+    para_set["K"] = 1 if request.POST["phK"] == "" else int(request.POST["phK"])
+    para_set["W"] = 1.2 if request.POST["phW"] == "" else float(request.POST["phW"])
+    para_set["T"] = 100 if request.POST["phT"] == "" else int(request.POST["phT"])
     para_set["compute_mode"] = request.POST["computeMode"]
     para_set["thread_mode"] = request.POST["threadMode"]
-    para_set["input_path_N"] = "./dataset1000NoIndex.csv" if request.POST["ipathN"]=="" else request.POST["ipathN"]
-    para_set["input_path_Q"] = "./dataset1000NoIndex.csv" if request.POST["ipathQ"]=="" else request.POST["ipathQ"]
-    para_set["output_path"] = "candidate.csv" if request.POST["opath"]=="" else request.POST["opath"]
-    # lsh.calCandidate(para_set)
-    if __name__ == '__main__':
-        pool = Pool(processes=1)  # Start a worker processes.
-        result = pool.apply_async(lsh.calCandidate, para_set )
+    para_set["input_path_N"] = "./dataset1000NoIndex.csv" if request.POST["ipathN"] == "" else request.POST["ipathN"]
+    para_set["input_path_Q"] = "./dataset1000NoIndex.csv" if request.POST["ipathQ"] == "" else request.POST["ipathQ"]
+    para_set["output_path"] = "candidate.csv" if request.POST["opath"] == "" else request.POST["opath"]
+
+    f.write(datetime.now().strftime('%Y-%m-%d %H:%M:%S') + "  Passing Parameter to the Engine\n")
+    f.close()
+
+    reply = lsh.calCandidate(para_set)
+
     return render(request, 'FastLSH/dashboard/execution.html', {} )
 
+def get_log(request):
+    run_name = "first run" if request.POST["RunName"] == "" else request.POST["RunName"]
+    with open("./FastLSH/core/logs/"+run_name) as f:
+        response = f.read()
+
+    return HttpResponse(response)
+
+def run_model(request):
+
+    cpu_num = psutil.cpu_count()
+
+    cpu_html = ""
+    for c in range(1,cpu_num+1):
+        cpu_html = cpu_html+'<div class="widget_summary"><div class="w_left w_25"><span>CPU '+str(c)+'</span></div>' \
+        '<div class="w_center w_55"><div class="progress"><div class="progress-bar bg-green" role="progressbar" ' \
+        'id = "cpu_'+str(c)+'" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 80%;"><span class="sr-only"></span>' \
+        '</div></div></div><div class="w_right w_20"><span id = "cpu_'+str(c)+'_p"></span></div><div class="clearfix"></div></div>'
+
+    return render(request, 'FastLSH/dashboard/run_model.html', {'cpu_html':cpu_html})
+
+
 def execution_d(request):
-
-
     # reply = lsh.calCandidate(para_set)
-
     return render(request, 'FastLSH/dashboard/execution.html')
 
 def ram_status(request):
@@ -94,6 +121,7 @@ def ram_status(request):
 def cpu_status(request):
     percent = psutil.cpu_percent(percpu=True)
     response = ""
+    response = response + str(psutil.cpu_count()) + " "
     for p in percent:
         response =  response +str(p) +" "
     return HttpResponse(response)
@@ -119,6 +147,10 @@ def submit(request):
     para_set = dict()
 
     para_set["run_name"] = "first run" if request.POST["RunName"]=="" else request.POST["RunName"]
+
+    f = open ("./FastLSH/core/logs/"+para_set["run_name"],'wb')
+    f.write(datetime.now().strftime('%Y-%m-%d %H:%M:%S')+"  Parameter Received\n")
+
     para_set["N"] =  1000 if request.POST["phN"]=="" else int(request.POST["phN"])
     para_set["Q"] =  1000 if request.POST["phQ"]=="" else int(request.POST["phQ"])
     para_set["D"] =  56 if request.POST["phD"]=="" else int(request.POST["phD"])
@@ -132,8 +164,10 @@ def submit(request):
     para_set["input_path_Q"] = "./dataset1000NoIndex.csv" if request.POST["ipathQ"]=="" else request.POST["ipathQ"]
     para_set["output_path"] = "candidate.csv" if request.POST["opath"]=="" else request.POST["opath"]
 
-    reply = lsh.calCandidate(para_set)
+    f.write(datetime.now().strftime('%Y-%m-%d %H:%M:%S') + "  Passing Parameter to the Engine\n ")
+    f.close()
 
+    reply = lsh.calCandidate(para_set)
     #
     # s = subprocess.check_output(["./FastLSH/core/cExec/FastLSH"])
     # s = s.replace("\n","<br>")

@@ -1,0 +1,8 @@
+2017-04-27 14:15:54  Parameter Received
+2017-04-27 14:15:54  Passing Parameter to the Engine
+2017-04-27 14:15:54  Starting Engine
+2017-04-27 14:15:54  Loading data set N from /home/peter/FYP/dataset300000NoIndex.csv
+2017-04-27 14:15:55  Loading data set Q from /home/peter/FYP/SimPointSite/FastLSH/files/123456/input/dataset1000NoIndex.csv
+2017-04-27 14:15:55  Starting Engine 
+2017-04-27 14:18:13  Calculation  Complete 
+2017-04-27 14:18:43  Saving Candidate Set to candidate.csv
