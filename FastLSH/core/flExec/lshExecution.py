@@ -38,4 +38,9 @@ def calCandidate(para_set):
 
     f.close()
 
+    l.clear()
+
+    l.__swig_destroy__
+
+
     return result

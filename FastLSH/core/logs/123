@@ -1,35 +1,8 @@
-2017-04-27 14:01:42  Parameter Received
-2017-04-27 14:01:42  Passing Parameter to the Engine
-2017-04-27 14:01:42  Starting Engine
-2017-04-27 14:01:42  Loading data set N from ./dataset1000NoIndex.csv
-2017-04-27 14:01:42  Loading data set Q from ./dataset1000NoIndex.csv
-2017-04-27 14:01:42  Engine Status __             __   
-|_  _  _ _|_|  (_ |_|
-|  (_|_>  |_|____)| |
-Current RunID: 201732714142
-Load Mode: LFS(Linux File System)
-Compute Mode: (0)Normal
-Thread Mode: (0)SingleThread
-Parameters: 
-  --------------------------------
-  |  N|      1000||  Q|      1000|
-  --------------------------------
-  |  D|        56||  L|       200|
-  --------------------------------
-  |  K|         1||  W|       1.2|
-  --------------------------------
-  |  Q|      1000||  T|       100|
-  --------------------------------
-Variables Existence (Y/N): 
-  RandomLine: Y
-  RandomVector: Y
-  SetN: Y
-  SetQ: Y
-  hashMatrixN: N
-  hashMatrixQ: N
-  collisionMatrix: N
-  candidateSet: N
-
-2017-04-27 14:01:42  Starting Engine 
-2017-04-27 14:01:45  Calculation  Complete 
-2017-04-27 14:01:45  Saving Candidate Set to candidate.csv
+2017-04-28 11:53:44  Parameter Received
+2017-04-28 11:53:44  Passing Parameter to the Engine
+2017-04-28 11:53:44  Starting Engine
+2017-04-28 11:53:44  Loading data set N from /home/peter/FYP/dataset300000NoIndex.csv
+2017-04-28 11:53:45  Loading data set Q from /home/peter/FYP/SimPointSite/FastLSH/files/123456/input/dataset1000NoIndex.csv
+2017-04-28 11:53:45  Starting Engine 
+2017-04-28 11:59:05  Calculation  Complete 
+2017-04-28 11:59:36  Saving Candidate Set to candidate.csv
