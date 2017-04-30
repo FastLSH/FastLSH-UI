@@ -5,12 +5,12 @@ from django.http import HttpResponse
 from django.shortcuts import render, render_to_response
 import time
 import os
-from django import forms
 import core.flExec.lshExecution as lsh
 import psutil
 import platform
 from requests import get
 from multiprocessing import Pool
+from threading import Thread
 
 # Create your views here.
 
@@ -83,9 +83,13 @@ def db_submit(request):
     f.write(datetime.now().strftime('%Y-%m-%d %H:%M:%S') + "  Passing Parameter to the Engine\n")
     f.close()
 
-    reply = lsh.calCandidate(para_set)
+    t = Thread(target=lsh.calCandidate, args=(para_set,))
+    t.start()
 
-    return render(request, 'FastLSH/dashboard/execution.html', {} )
+
+    # reply = lsh.calCandidate(para_set)
+    return HttpResponse("wqer")
+    #return render(request, 'FastLSH/dashboard/execution.html', {} )
 
 def get_log(request):
     run_name = "first run" if request.POST["RunName"] == "" else request.POST["RunName"]

@@ -11,6 +11,7 @@ def calCandidate(para_set):
     f.write(datetime.now().strftime('%Y-%m-%d %H:%M:%S') + "  Starting Engine\n")
     l = lsh.LSH(para_set["N"], para_set["Q"], para_set["D"], para_set["L"], para_set["K"], para_set["W"], para_set["T"])
 
+    print para_set["run_name"]
     f.write(datetime.now().strftime('%Y-%m-%d %H:%M:%S') + "  Loading data set N from "+para_set["input_path_N"]+ "\n")
     l.loadSetN(str(para_set["input_path_N"]),0)
     f.write(
