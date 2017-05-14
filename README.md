@@ -13,6 +13,9 @@ Change to the repository root directory
 Open Browser  
 Visit ` 127.0.0.1:8000/FastLSH `
 
+## Have a glimpse 
+
+
 
 
 
