@@ -1,3 +1,7 @@
+<img src="https://cloud.githubusercontent.com/assets/11495951/26154957/2a6a2970-3b44-11e7-8731-dae41039f610.png" alt="FastLSH_LOGO" style="width: 100px;"/>
+
+
+
 # FastLSH-UI
 Web-based user interface of FastLSH. It have been tested on Ubuntu 14.04, 16.04
 
