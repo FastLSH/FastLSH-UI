@@ -1,0 +1,237 @@
+{% include "FastLSH/dashboard/header.html" %}
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+          <div class="">
+            <div class="page-title">
+              <div class="title_left">
+                <h3>High Dimensional Visualization</h3>
+              </div>
+
+            </div>
+
+            <div class="clearfix"></div>
+
+            <div class="row">
+              <div class="col-md-9 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>3D Graph <small></small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+
+                      <div class="row">
+				<!-- /.row -->
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+							</div>
+							<!-- /.panel-heading -->
+							<div class="panel-body">
+								<div id="my-chart">
+									<div id="container" style="height: 600px"></div>
+                                </div>
+                            </div>
+									</div>
+								</div>
+								<!-- /.panel-body -->
+							</div>
+							<!-- /.panel -->
+						</div>
+						<!-- /.panel-body -->
+					</div>
+                    </div>
+                  </div>
+
+				<div class="col-md-3 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Setting <small></small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+
+
+                      <div class="row">
+				<!-- /.row -->
+				<div class="row">
+					<div class="col-lg-12">
+                    <div class="col-md-12">
+                    <p>Select Data Set</p>
+                        <a class="btn btn-app data-select" name="options" id="iris" type="radio" title="UCI-ML-Iris 150 Points 3 types 4 dimensions">
+                            <i class="glyphicon glyphicon-grain"></i> Iris
+                        </a>
+
+                        <a class="btn btn-app data-select" name="options" id="glass" type="radio" title="UCI-ML-Glass 214 Points 6 types 9 dimensions">
+                            <i class="fa fa-th"></i> Glass
+                        </a>
+
+                        <a class="btn btn-app data-select" name="options" id="cancer" type="radio" title="UCI-ML-Breast Cancer 569 Points 2 types 30 dimensions">
+                            <i class="fa fa-heart"></i> Cancer
+                        </a>
+
+                        <a class="btn btn-app data-select" name="options" id="author" type="radio" title="CityU-Stymoletry 4736 Points 3 types 56 dimensions">
+                            <i class="fa fa-pencil"></i> Author
+                        </a>
+
+
+                    </div>
+
+						<br>
+
+                        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                      <p>View Distance</p>
+                      <div style="display:inline;width:100px;height:120px;">
+						  <input id = "v_dis" class="knob" data-max="200" data-angleOffset="-125" data-angleArc="250" data-width="100" data-height="120" data-cursor="true" data-fgcolor="#34495E" value="5"
+								 style="width: 54px; height: 33px; position: absolute; vertical-align: middle; margin-top: 33px; margin-left: -77px; border: 0px none; background: transparent none repeat scroll 0% 0%; font: bold 20px Arial; text-align: center; color: rgb(52, 73, 94); padding: 0px;">
+					  </div>
+                    </div>
+                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+							<p>Depth</p>
+                      <div style="display:inline;width:100px;height:120px;">
+						  <input id = "depth" class="knob" data-max="1000" data-angleOffset="-125" data-angleArc="250" data-width="100" data-height="120" data-cursor="true" data-fgcolor="#34495E" value="250"
+								 style="width: 54px; height: 33px; position: absolute; vertical-align: middle; margin-top: 33px; margin-left: -77px; border: 0px none; background: transparent none repeat scroll 0% 0%; font: bold 20px Arial; text-align: center; color: rgb(52, 73, 94); padding: 0px;">
+					  </div>
+                </div>
+					</div>
+								<!-- /.panel-body -->
+							</div>
+
+
+							<!-- /.panel -->
+						</div>
+						<!-- /.panel-body -->
+
+					</div>
+                    </div>
+
+
+
+
+                  </div>
+
+
+
+                </div>
+              </div>
+
+			<div id = "feature_list" class="col-md-10 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Dimension Selector <small> Drag and Drop</small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+
+                      <div class="row">
+				<!-- /.row -->
+				<div class="row">
+					<div class="col-lg-12">
+
+				              <div  class="col-md-12">
+									<div class = "col-lg-6 col-md-6 col-sm-6 col-xs-12">
+										<div class="list " >
+											<h3>x-axis</h3>
+											<ul id="x-axis" class="connectedSortable list-group" style="height:40px";>
+												<li id="f1" class="list-group-item">Feature 1</li>
+											</ul>
+										</div>
+
+										<div class="list">
+											<h3>y-axis</h3>
+											<ul id="y-axis" class="connectedSortable list-group" style="height:40px">
+												<li id= "f2" class="list-group-item">Feature 2</li>
+											</ul>
+										</div>
+
+										<div class="list">
+											<h3>z-axis</h3>
+											<ul id="z-axis" class="connectedSortable list-group" style="height:40px">
+												<li id="f3" class="list-group-item">Feature 3</li>
+											</ul>
+										</div>
+										</div>
+										<div class = "col-lg-6 col-md-6 col-sm-6 col-xs-12">
+										<div class="list">
+											<h3>Feature List</h3>
+											<ul id="sortable1" class="connectedSortable list-group" style="max-height:200px; overflow:auto;">
+												<li id="f4" class="list-group-item">Feature 4</li>
+												<li id="f5" class="list-group-item">Feature 5</li>
+												<li id="f6" class="list-group-item">Feature 6</li>
+												<li id="f7" class="list-group-item">Feature 7</li>
+												<li id="f8" class="list-group-item">Feature 8</li>
+											</ul>
+										</div>
+
+
+
+								</div>
+							  </div>
+
+					</div>
+
+
+							</div>
+
+
+						</div>
+
+					</div>
+                    </div>
+
+
+
+
+                  </div>
+
+
+
+
+            </div>
+
+        <!-- /page content -->
+
+
+
+    {% include "FastLSH/dashboard/footer.html" %}
+
+
+    {% load staticfiles %}
+    <script src="{% static '/vendors/highcharts/highcharts.js' %}"></script>
+    <script src="{% static '/vendors/highcharts/highcharts-3d.js' %}"></script>
+    <script src="{% static '/vendors/highcharts/modules/exporting.js' %}"></script>
+    <script src="{% static '/vendors/jquery-ui/jquery-ui.min.js' %}"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="{% static '/vendors/jquery-knob/dist/jquery.knob.min.js' %}"></script>
+
+    <script src="{% static '/hdv/hdv.js' %}"></script>
